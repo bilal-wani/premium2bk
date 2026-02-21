@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2 BHK For Rent – MJ Lifestyle Astro</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .flyer {
+    width: 620px;
+    background: linear-gradient(145deg, #0f1923 0%, #0d1f2d 50%, #0a1520 100%);
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+    animation: fadeIn 0.8s ease both;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Decorative blobs */
+  .blob1 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,180,50,0.12) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .blob2 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(30,180,150,0.1) 0%, transparent 70%);
+    bottom: 50px; left: -80px;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* Header */
+  .header {
+    padding: 36px 40px 28px;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(90deg, #f5a623, #f7c35f);
+    color: #1a0e00;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 50px;
+    margin-bottom: 18px;
+  }
+
+  .badge::before { content: '🟢'; font-size: 10px; }
+
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1.05;
+    color: #fff;
+    letter-spacing: -1px;
+  }
+
+  .title span {
+    background: linear-gradient(90deg, #f5a623, #f7c35f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    margin-top: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+
+  /* Location */
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.07);
+    width: fit-content;
+  }
+
+  .location-icon { font-size: 16px; }
+
+  .location-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 400;
+  }
+
+  .location-text strong {
+    color: #fff;
+    font-weight: 500;
+    display: block;
+    font-size: 14px;
+  }
+
+  /* Amenities grid */
+  .section {
+    padding: 28px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .amenities {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .amenity-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.2s;
+  }
+
+  .amenity-item:hover { background: rgba(255,255,255,0.06); }
+
+  .amenity-icon {
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(135deg, rgba(245,166,35,0.15), rgba(245,166,35,0.05));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .amenity-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    font-weight: 400;
+  }
+
+  /* Pricing */
+  .pricing {
+    padding: 28px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .price-card {
+    padding: 18px 20px;
+    border-radius: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .price-card.main {
+    background: linear-gradient(135deg, rgba(245,166,35,0.15), rgba(247,195,95,0.08));
+    border: 1px solid rgba(245,166,35,0.25);
+  }
+
+  .price-card.secondary {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .price-label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .price-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .price-card.main .price-value {
+    background: linear-gradient(90deg, #f5a623, #f7c35f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .price-note {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 4px;
+    font-weight: 300;
+  }
+
+  /* CTA */
+  .cta {
+    padding: 28px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.25s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .cta-btn.primary {
+    background: linear-gradient(90deg, #f5a623, #f7c35f);
+    color: #1a0e00;
+  }
+
+  .cta-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(245,166,35,0.35);
+  }
+
+  .cta-btn.secondary {
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .cta-btn.secondary:hover {
+    background: rgba(255,255,255,0.09);
+    transform: translateY(-1px);
+  }
+
+  .cta-btn .icon { font-size: 18px; }
+
+  /* Footer */
+  .footer {
+    padding: 16px 40px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .footer-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.5px;
+  }
+
+  .dot {
+    width: 3px; height: 3px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+  }
+
+  /* Divider star */
+  .star-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 40px;
+    margin: 2px 0;
+  }
+  .star-line { flex: 1; height: 1px; background: rgba(255,255,255,0.06); }
+  .star-icon { font-size: 12px; color: rgba(245,166,35,0.5); }
+</style>
+</head>
+<body>
+<div class="flyer">
+  <div class="blob1"></div>
+  <div class="blob2"></div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="badge">Available Immediately</div>
+    <div class="title">2 BHK<br><span>For Rent</span></div>
+    <p class="subtitle">Spacious · Well-Ventilated · Gated Community</p>
+    <div class="location">
+      <div class="location-icon">📍</div>
+      <div class="location-text">
+        <strong>MJ Lifestyle Astro, Huskuru</strong>
+        Prime location near Electronic City, Bangalore
+      </div>
+    </div>
+  </div>
+
+  <!-- Amenities -->
+  <div class="section">
+    <div class="section-label">Highlights &amp; Amenities</div>
+    <div class="amenities">
+      <div class="amenity-item">
+        <div class="amenity-icon">🏊</div>
+        <span class="amenity-text">Swimming Pool</span>
+      </div>
+      <div class="amenity-item">
+        <div class="amenity-icon">💪</div>
+        <span class="amenity-text">Modern Gymnasium</span>
+      </div>
+      <div class="amenity-item">
+        <div class="amenity-icon">🏛️</div>
+        <span class="amenity-text">Clubhouse</span>
+      </div>
+      <div class="amenity-item">
+        <div class="amenity-icon">🔒</div>
+        <span class="amenity-text">24/7 Security</span>
+      </div>
+      <div class="amenity-item">
+        <div class="amenity-icon">🌬️</div>
+        <span class="amenity-text">Well-Ventilated Flat</span>
+      </div>
+      <div class="amenity-item">
+        <div class="amenity-icon">👨‍👩‍👧</div>
+        <span class="amenity-text">Family &amp; Professionals</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <div class="pricing">
+    <div class="price-card main">
+      <div class="price-label">Monthly Rent</div>
+      <div class="price-value">₹30,000</div>
+      <div class="price-note">+ Maintenance · Negotiable</div>
+    </div>
+    <div class="price-card secondary">
+      <div class="price-label">Security Deposit</div>
+      <div class="price-value">₹1.5 L</div>
+      <div class="price-note">One-time refundable</div>
+    </div>
+  </div>
+
+  <!-- CTA Buttons -->
+  <div class="cta">
+    <a href="https://sites.google.com/view/rent-2bhk-mj-lifestyle-astro/home" class="cta-btn primary" target="_blank">
+      <span class="icon">📸</span>
+      View Photos &amp; Full Details
+    </a>
+    <a href="tel:9149448604" class="cta-btn secondary">
+      <span class="icon">📞</span>
+      Call / WhatsApp: 9149448604
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span class="footer-text">MJ Lifestyle Astro</span>
+    <div class="dot"></div>
+    <span class="footer-text">Huskuru, Bangalore</span>
+    <div class="dot"></div>
+    <span class="footer-text">Immediate Move-In</span>
+  </div>
+</div>
+</body>
+</html>
